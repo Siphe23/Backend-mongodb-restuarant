@@ -1,6 +1,7 @@
 const Restaurant = require('../models/Restaurant');
 const mongoose = require('mongoose');
 
+// Get all restaurants
 const getAllRestaurants = async (req, res) => {
   try {
     const restaurants = await Restaurant.find().populate('category_id');
@@ -10,9 +11,10 @@ const getAllRestaurants = async (req, res) => {
   }
 };
 
+// Get a restaurant by ID
 const getRestaurantById = async (req, res) => {
   const { id } = req.params;
-  
+
   if (!mongoose.isValidObjectId(id)) {
     return res.status(400).json({ message: "Invalid restaurant ID format" });
   }

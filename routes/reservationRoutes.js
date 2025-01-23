@@ -1,19 +1,17 @@
-// routes/reservationRoutes.js
 const express = require('express');
+const { createReservation, getReservations, updateReservation, deleteReservation } = require('../controllers/reservationController');
 const router = express.Router();
-const reservationController = require('../controllers/reservationController');
-const authMiddleware = require('../middleware/authMiddleware');  // Assuming you have auth middleware
 
-// Create a reservation
-router.post('/reservations', authMiddleware, reservationController.createReservation);
+// Create reservation
+router.post('/', createReservation);
 
-// Get reservations for a specific restaurant
-router.get('/reservations/:restaurant_id', authMiddleware, reservationController.getReservations);
+// Get reservations
+router.get('/:restaurant_id', getReservations);
 
-// Update a reservation
-router.put('/reservations/:reservation_id', authMiddleware, reservationController.updateReservation);
+// Update reservation
+router.put('/:reservation_id', updateReservation);
 
-// Delete a reservation
-router.delete('/reservations/:reservation_id', authMiddleware, reservationController.deleteReservation);
+// Delete reservation
+router.delete('/:reservation_id', deleteReservation);
 
 module.exports = router;

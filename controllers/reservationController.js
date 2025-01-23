@@ -1,6 +1,4 @@
-// controllers/reservationController.js
-const Reservation = require('../models/Reservation');  // Assuming you have a Reservation model
-const User = require('../models/User'); // Assuming you have a User model
+const Reservation = require('../models/Reservation');
 
 // Create a reservation
 exports.createReservation = async (req, res) => {
